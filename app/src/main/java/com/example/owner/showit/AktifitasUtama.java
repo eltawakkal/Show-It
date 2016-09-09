@@ -3,6 +3,8 @@ package com.example.owner.showit;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +15,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AktifitasUtama extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private List<String> list = new ArrayList<String>();
+    Adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,30 @@ public class AktifitasUtama extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recyclerViewQ);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(AktifitasUtama.this, 3));
+
+        addTitle();
+        mAdapter = new Adapter(list, this);
+        mRecyclerView.setAdapter(mAdapter);
+
+    }
+
+    private void addTitle() {
+        list.add("Green Canyon");
+        list.add("Goa Buniayu");
+        list.add("Kawah Putih");
+        list.add("Kebun Raya Bogor");
+        list.add("Mekarsari");
+        list.add("Pantai Pangandaran");
+        list.add("Pantai Ratu");
+        list.add("Situ Patengan");
+        list.add("Taman Nusantara");
+        list.add("Tangkuban Perahu");
+        list.add("Transtudio Bandung");
+        list.add("Pantai Ujung G");
     }
 
     @Override
