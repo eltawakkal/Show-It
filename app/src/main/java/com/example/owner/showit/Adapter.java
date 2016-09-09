@@ -1,6 +1,7 @@
 package com.example.owner.showit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,9 +44,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.textTitle.setText(list.get(position));
         Picasso.with(context).load(img[position]).resize(75, 112).onlyScaleDown().into(holder.imageView);
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("judul", list.get(position));
+                context.startActivity(intent);
+            }
+        });
 
         if(lastItem<position){
             Animation animation = AnimationUtils.loadAnimation(context, R.anim.animasi);
