@@ -31,14 +31,14 @@ public class AktifitasUtama extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -60,18 +60,14 @@ public class AktifitasUtama extends AppCompatActivity
     }
 
     private void addTitle() {
-        list.add("Green Canyon");
-        list.add("Goa Buniayu");
-        list.add("Kawah Putih");
-        list.add("Kebun Raya Bogor");
-        list.add("Mekarsari");
-        list.add("Pantai Pangandaran");
-        list.add("Pantai Ratu");
-        list.add("Situ Patengan");
-        list.add("Taman Nusantara");
-        list.add("Tangkuban Perahu");
-        list.add("Transtudio Bandung");
-        list.add("Pantai Ujung G");
+        list.add("Monas");
+        list.add("Borobudur");
+        list.add("Makkah");
+        list.add("Eifel");
+        list.add("Roma");
+        list.add("Ciliwung");
+        list.add("Burjkhalifah");
+        list.add("Twin Tower");
     }
 
     @Override

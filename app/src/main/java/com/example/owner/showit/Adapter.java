@@ -26,9 +26,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     int lastItem=-1;
 
-    int img[] = {R.drawable.canyon_pangandaran, R.drawable.goabuniayu, R.drawable.kawaputih, R.drawable.kbnrayabogor
-            , R.drawable.mekarsari, R.drawable.pangandaran, R.drawable.pantairatu, R.drawable.patenggang,
-            R.drawable.tamannusantara, R.drawable.tangkuban, R.drawable.transtudiobandung, R.drawable.ujung_genteng};
+    int img[] = {R.drawable.monas, R.drawable.borobudur, R.drawable.makkah, R.drawable.eifel
+            , R.drawable.roma, R.drawable.ciliwung, R.drawable.burj, R.drawable.twin};
 
     public Adapter(List<String> list, Context context) {
         this.list = list;
@@ -46,20 +45,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.textTitle.setText(list.get(position));
-        Picasso.with(context).load(img[position]).resize(75, 112).onlyScaleDown().into(holder.imageView);
+        Picasso.with(context).load(img[position]).resize(400, 500).onlyScaleDown().into(holder.imageView);
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("judul", list.get(position));
+                Intent intent = new Intent(context, StreetView.class);
+                intent.putExtra("nama", list.get(position));
                 context.startActivity(intent);
+
             }
         });
 
         if(lastItem<position){
             Animation animation = AnimationUtils.loadAnimation(context, R.anim.animasi);
             holder.itemView.setAnimation(animation);
+            lastItem++;
         }
 
     }
@@ -84,3 +85,38 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+/*AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                alert.setTitle(list.get(position));
+
+                WebView wv = new WebView(context);
+                //wv.loadUrl("https://developers.google.com/maps/documentation/javascript/streetview?hl=id");
+                wv.loadUrl("https://www.google.com/maps/@37.8692783,-122.2547424,3a,64.2y,236h,59.31t/data=!3m6!1e1!3m4!1saLZGjckzYJA2dnqkB3SkzQ!2e0!7i13312!8i6656");
+                wv.getSettings().setLoadsImagesAutomatically(true);
+                wv.getSettings().setJavaScriptEnabled(true);
+                wv.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+
+                        return true;
+                    }
+                });
+
+                alert.setView(wv);
+                alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();*/

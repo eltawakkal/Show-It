@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@drawable/wall"
     tools:context="com.example.owner.showit.AktifitasUtama">
 
     <android.support.design.widget.AppBarLayout
+        app:elevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -18,7 +20,7 @@
 
             <ImageView
 
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/showit"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize" />
 
@@ -26,13 +28,21 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#10000000"
+                android:background="#00000000"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
         </RelativeLayout>
 
+
     </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:src="@drawable/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <include layout="@layout/content_aktifitas_utama" />
 
